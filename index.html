@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frankenstein, or the Stitched Soundtrack</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #090d0b;
+  --green: #14251d;
+  --green-light: #20392d;
+  --gold: #c5a66b;
+  --cream: #eee2c5;
+  --muted: #b9ad91;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at top, #26372c 0%, #101912 48%, #070a08 100%);
+  font-family: "IM Fell English", Georgia, serif;
+}
+
+header {
+  text-align: center;
+  padding: 48px 20px 28px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-family: "Special Elite", monospace;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 15px auto 10px;
+  max-width: 900px;
+  font-family: "Cinzel", serif;
+  font-size: clamp(30px, 5vw, 57px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--cream);
+  text-shadow: 0 3px 18px #000;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 18px;
+  font-style: italic;
+}
+
+.gold-line {
+  width: 150px;
+  height: 1px;
+  margin: 25px auto;
+  background: var(--gold);
+  opacity: .7;
+}
+
+main {
+  width: min(1100px, 94%);
+  margin: 0 auto 60px;
+}
+
+.intro {
+  max-width: 780px;
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #d1c5a9;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* MAIN PLAYER */
+
+.player {
+  padding: 25px;
+  border: 1px solid #8e754b;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, #26352b, #111a14 65%, #080d0a);
+  box-shadow:
+    0 20px 60px #000a,
+    inset 0 0 35px #0008;
+}
+
+.player-heading {
+  text-align: center;
+  margin-bottom: 22px;
+  font-family: "Cinzel", serif;
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+/* TWO-COLUMN LAYOUT */
+
+.player-main {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(300px, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.record-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* TURNTABLE BACKGROUND */
+
+.turntable {
+  width: 100%;
+  height: 360px;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #66563b;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle, #29372d 0%, #17231b 60%, #0b100c 100%);
+  box-shadow: inset 0 0 30px #0008;
+}
+
+/* RECORD */
+
+.platter {
+  width: min(78%, 285px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background:
+    repeating-radial-gradient(
+      circle,
+      #080909 0px,
+      #111312 2px,
+      #050606 4px,
+      #171918 5px
+    );
+  box-shadow:
+    0 0 0 7px #252724,
+    0 0 0 9px #8b754c,
+    0 12px 30px #000b;
+}
+
+.record {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  animation: none;
+}
+
+.record.spinning {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* RECORD CENTER LABEL */
+
+.record-center {
+  width: 31%;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  background:
+    radial-gradient(circle, #d2b77d, #927347 72%, #44321e);
+  border: 3px solid #2b2117;
+  color: #17140e;
+  z-index: 2;
+  padding: 4px;
+}
+
+.record-center strong {
+  display: block;
+  width: 100%;
+  font-family: "Cinzel", serif;
+  font-size: clamp(6px, .85vw, 9px);
+  line-height: 1.25;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.record-center span {
+  margin-top: 3px;
+  font-family: "Special Elite", monospace;
+  font-size: clamp(4px, .6vw, 6px);
+  line-height: 1.2;
+}
+
+.record-hole {
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #080909;
+  z-index: 3;
+}
+
+/* TONEARM */
+
+.tonearm {
+  position: absolute;
+  z-index: 5;
+  width: 180px;
+  height: 13px;
+  right: 1%;
+  top: 13%;
+  transform-origin: 92% 50%;
+  transform: rotate(-48deg);
+  transition: transform .4s ease;
+  pointer-events: none;
+}
+
+.tonearm-bar {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(#e2d1a4, #8a7046, #d2bc88);
+  box-shadow: 0 2px 5px #000;
+}
+
+.tonearm-pivot {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #d8c18d, #5b472d);
+  border: 3px solid #241d14;
+}
+
+.tonearm-head {
+  position: absolute;
+  left: -8px;
+  top: -1px;
+  width: 27px;
+  height: 17px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #d5c18f, #51412c);
+  transform: rotate(-8deg);
+}
+
+.tonearm-head::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  height: 17px;
+  width: 2px;
+  background: #e4d4ad;
+}
+
+/* SONG SELECTOR UNDER RECORD */
+
+.selector-wrap {
+  margin: 22px auto 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.selector-wrap label {
+  display: block;
+  color: var(--gold);
+  font-family: "Special Elite", monospace;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin-bottom: 9px;
+}
+
+#songSelector {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  background: #101a14;
+  color: var(--cream);
+  font-size: 14px;
+}
+
+/* PREVIOUS, PLAY, NEXT */
+
+.controls {
+  margin: 18px auto 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+button,
+select {
+  font-family: "Cinzel", serif;
+}
+
+.control-button {
+  border: 1px solid var(--gold);
+  padding: 10px 12px;
+  border-radius: 3px;
+  background: #18271e;
+  color: var(--cream);
+  cursor: pointer;
+  transition: .2s;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.control-button:hover {
+  background: #354b39;
+  color: #fff0c9;
+}
+
+.control-button.main {
+  background: #a48752;
+  color: #11150f;
+  font-weight: 700;
+  min-width: 110px;
+}
+
+.control-button.main:hover {
+  background: #d1b77d;
+}
+
+.control-button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+#playerStatus {
+  text-align: center;
+  color: #cbb98e;
+  font-family: "Special Elite", monospace;
+  font-size: 12px;
+  min-height: 18px;
+  margin: 8px 0 12px;
+}
+
+/* SPOTIFY PLAYER UNDER CONTROLS */
+
+.spotify-section {
+  margin-top: 8px;
+  padding: 16px;
+  border: 1px solid #8d754b;
+  background: #0b100d;
+  border-radius: 4px;
+}
+
+.spotify-heading {
+  text-align: center;
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+#spotifyPlayer {
+  width: 100%;
+  min-height: 152px;
+}
+
+#spotifyPlayer iframe {
+  border: 0;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.spotify-help {
+  color: #a99d83;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+}
+
+/* LINER NOTES */
+
+.notes-display {
+  min-height: 410px;
+  padding: 25px;
+  border: 1px solid #a48a5a;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #101b15, #192c21);
+  box-shadow: inset 0 0 30px #0009;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-top {
+  color: var(--gold);
+  font-family: "Special Elite", monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #75613f;
+  padding-bottom: 12px;
+}
+
+#noteTitle {
+  margin: 20px 0 8px;
+  font-family: "Cinzel", serif;
+  font-size: clamp(20px, 2.6vw, 27px);
+  color: #f0dfb8;
+  line-height: 1.3;
+}
+
+#noteArtist {
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.note-label {
+  color: #d0b477;
+  font-family: "Special Elite", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin: 12px 0 5px;
+  text-transform: uppercase;
+}
+
+#noteContent {
+  color: #f0e8d5;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.book-quote {
+  margin: 10px 0 0;
+  padding-left: 13px;
+  border-left: 2px solid var(--gold);
+  color: #e8d8b8;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.chapter {
+  color: #c9b98f;
+  font-family: "Special Elite", monospace;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.lyrics-placeholder {
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px dashed #8a754e;
+  color: #cfc4aa;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* FULL PLAYLIST */
+
+.full-playlist {
+  margin-top: 55px;
+  padding: 30px;
+  border: 1px solid #8e754b;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, #1c2b21, #0a100c);
+  box-shadow: 0 15px 45px #0009;
+}
+
+.playlist-eyebrow {
+  color: var(--gold);
+  font-family: "Special Elite", monospace;
+  letter-spacing: 4px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.full-playlist h2 {
+  color: var(--cream);
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 500;
+  margin: 12px 0;
+}
+
+.playlist-description {
+  max-width: 700px;
+  margin: 0 auto 22px;
+  text-align: center;
+  color: #cbbd9f;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.playlist-frame {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  border-radius: 12px;
+  background: #111;
+}
+
+.playlist-link-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.playlist-link {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid var(--gold);
+  color: #f0dfb8;
+  text-decoration: none;
+  font-family: "Cinzel", serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: .2s;
+}
+
+.playlist-link:hover {
+  background: #a48752;
+  color: #10150f;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px 40px;
+  color: #9d9279;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 720px) {
+  header {
+    padding-top: 35px;
+  }
+
+  .player {
+    padding: 13px;
+  }
+
+  .player-main {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .turntable {
+    height: 340px;
+  }
+
+  .platter {
+    width: min(78%, 270px);
+  }
+
+  .notes-display {
+    min-height: 340px;
+  }
+
+  .tonearm {
+    width: 155px;
+    right: 1%;
+    top: 13%;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
+  .control-button {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .full-playlist {
+    padding: 18px;
+  }
+
+  .playlist-frame {
+    height: 450px;
+  }
+}
+
+@media (max-width: 390px) {
+  .turntable {
+    height: 300px;
+  }
+
+  .platter {
+    width: 75%;
+  }
+
+  .tonearm {
+    width: 135px;
+    top: 12%;
+  }
+
+  .notes-display {
+    padding: 18px;
+  }
+
+  .record-center {
+    width: 32%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="eyebrow">A Gothic Musical Collection</div>
+  <h1>Frankenstein, or the Stitched Soundtrack</h1>
+  <div class="subtitle">A collection inspired by Mary Shelley's novel</div>
+  <div class="gold-line"></div>
+</header>
+
+<main>
+
+<p class="intro">
+  Step into Victor Frankenstein's world through a soundtrack inspired by
+  ambition, creation, rejection, guilt, and revenge. Each song connects to
+  an important character, event, or theme in Mary Shelley's
+  <em>Frankenstein</em>. Together, the songs follow the story from Victor's
+  first scientific discoveries to the tragic consequences of his creation.
+</p>
+
+<section class="player">
+
+  <div class="player-heading">THE FRANKENSTEIN RECORD PLAYER</div>
+
+  <div class="player-main">
+
+    <!-- LEFT COLUMN: RECORD AND CONTROLS -->
+
+    <div class="record-column">
+
+      <div class="turntable">
+        <div class="platter">
+
+          <div class="record" id="record">
+            <div class="record-center">
+              <strong>FRANKENSTEIN</strong>
+              <span>THE SOUNDTRACK</span>
+            </div>
+            <div class="record-hole"></div>
+          </div>
+
+        </div>
+
+        <div class="tonearm">
+          <div class="tonearm-bar"></div>
+          <div class="tonearm-pivot"></div>
+          <div class="tonearm-head"></div>
+        </div>
+      </div>
+
+      <div class="selector-wrap">
+        <label for="songSelector">CHOOSE A TRACK FROM THE COLLECTION</label>
+        <select id="songSelector"></select>
+      </div>
+
+      <div class="controls">
+        <button class="control-button" id="previousButton">⏮ Previous</button>
+        <button class="control-button main" id="playButton" disabled>▶ Play</button>
+        <button class="control-button" id="nextButton">Next ⏭</button>
+      </div>
+
+      <div id="playerStatus">Loading the Spotify player...</div>
+
+      <div class="spotify-section">
+        <div class="spotify-heading">LISTEN TO THE SELECTED TRACK</div>
+        <div id="spotifyPlayer"></div>
+        <p class="spotify-help">
+          Use the player controls or the Play/Pause button above to listen.
+          Selecting another song changes the embedded track.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: LINER NOTES -->
+
+    <div class="notes-display">
+
+      <div class="notes-top">Selected Track / Liner Notes</div>
+
+      <h2 id="noteTitle">Weird Science</h2>
+      <div id="noteArtist">Oingo Boingo</div>
+
+      <div class="note-label">Connection to the Novel</div>
+      <div id="noteContent"></div>
+
+      <div class="note-label">Passage from the Book</div>
+      <div class="book-quote" id="noteQuote"></div>
+      <div class="chapter" id="noteChapter"></div>
+
+      <div class="note-label">Lyrics / Listening Notes</div>
+      <div class="lyrics-placeholder" id="noteLyrics"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COMPLETE PLAYLIST AT THE BOTTOM -->
+
+<section class="full-playlist">
+
+  <div class="playlist-eyebrow">THE COMPLETE COLLECTION</div>
+
+  <h2>Listen to the Full Soundtrack</h2>
+
+  <p class="playlist-description">
+    Want to hear the entire collection in order? The full
+    <em>Frankenstein, or the Stitched Soundtrack</em> playlist is collected
+    here. Listen to all ten songs together and follow the musical journey
+    through the novel.
+  </p>
+
+  <iframe
+    class="playlist-frame"
+    src="https://open.spotify.com/embed/playlist/20RhJWQOLziqK7WZA5tjDR?utm_source=generator&theme=0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+    title="Full Frankenstein Soundtrack Playlist">
+  </iframe>
+
+  <div class="playlist-link-wrap">
+    <a
+      class="playlist-link"
+      href="https://open.spotify.com/playlist/20RhJWQOLziqK7WZA5tjDR?si=x02OTw-lTwWmh3GtZ4JysQ&utm_source=copy-link&pi=k54ZXYcfScGLK"
+      target="_blank"
+      rel="noopener noreferrer">
+      OPEN THE FULL PLAYLIST ON SPOTIFY
+    </a>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  “Beware; for I am fearless, and therefore powerful.”
+  <br>
+  — Mary Shelley, Frankenstein
+</footer>
+
+<script>
+const songs = [
+  {
+    title: "Weird Science",
+    artist: "Oingo Boingo",
+    id: "03AhYPRQeOqG2j54Tdg94E",
+    connection:
+      "This song represents Victor Frankenstein's fascination with science and his desire to discover things that other people believe are impossible. When Victor is young, he becomes interested in the mysteries of nature and spends years studying science. Eventually, his curiosity turns into an obsession with discovering how life works. Instead of thinking carefully about the consequences, he becomes focused on proving that he can create life himself. The song's unusual and experimental feeling fits Victor's excitement about science, but it also hints at how dangerous his ambition becomes. His discovery may seem like a scientific achievement, but it leads to consequences he is completely unprepared to face.",
+    quote:
+      "“Life and death appeared to me ideal bounds, which I should first break through...”",
+    chapter: "Volume I, Chapter IV — Victor's scientific ambition",
+    lyrics:
+      "My creation, is it real? It's my creation, I do not know.No hesitation, no heart of gold.Just flesh and blood, I do not know."
+  },
+  {
+    title: "Parts and Pieces",
+    artist: "The Blake Robinson Synthetic Orchestra feat. Gloom Darkheart",
+    id: "20henCQpbdZchoQlgMD7Nv",
+    connection:
+      "This song connects directly to the process Victor uses to build the creature. He spends a long time collecting body parts and materials because he believes he can put them together and make something living. The song's title suggests separate pieces being joined into one creation, which is exactly what Victor attempts in his laboratory. It also reflects how Victor begins to treat his work like a project instead of thinking about the fact that he is creating a living being. Once the creature comes to life, Victor immediately realizes that he has not thought about what it means to be responsible for another life. The song captures both the strange process of creation and the serious responsibility Victor ignores.",
+    quote:
+      "“The dissecting room and the slaughter-house furnished many of my materials.”",
+    chapter: "Volume I, Chapter IV — The creation process",
+    lyrics:
+      "“A spark inside my mind, confusion reigns, I must confess. I came alive when you kick-started the heart deep inside of my chest. I'm a monstrosity, they'll never let us be.”"
+  },
+  {
+    title: "Almost Human",
+    artist: "Aurelio Voltaire",
+    id: "53U6H62jKiaHZHB6BYtFuS",
+    connection:
+      "This song represents the creature's struggle to be accepted as a person. Even though Victor sees him as a frightening mistake, the creature can think, learn, feel emotions, and understand the world around him. He wants friendship and companionship, but people react to his appearance with fear and rejection. As he learns more about human relationships, he becomes increasingly aware of how different his life is from everyone else's. The song fits because the creature is almost treated as human, but society refuses to give him the chance to belong. His loneliness becomes one of the biggest reasons he turns against Victor. The song helps show that the creature's behavior is connected to the way others treat him.",
+    quote:
+      "“I ought to be thy Adam, but I am rather the fallen angel...”",
+    chapter: "Volume II, Chapter II — The creature explains his rejection",
+    lyrics:
+      "“Look at me, I'm almost a human being. These tears are real - I'm jealousy. I'm spite and hate, to the core, I'm mean. I'm nearly human”"
+  },
+  {
+    title: "Grave Robber at Large",
+    artist: "Creature Feature",
+    id: "6yVgQXfuEwRmSPBi3MdMlg",
+    connection:
+      "This song matches the dark and unsettling places Victor visits while researching how to create life. He studies the human body and spends time around places connected to death because he believes they can help him understand the secret of life. His work takes him far away from ordinary scientific study and into disturbing experiments that he keeps hidden from everyone. The graveyard imagery in the song fits the way Victor becomes obsessed with the boundary between life and death. Instead of accepting that death is a natural part of life, he tries to find a way to overcome it. This obsession eventually leads him to create the creature, but he does not consider the emotional and moral consequences of his actions.",
+    quote:
+      "“I pursued nature to her hiding-places.”",
+    chapter: "Volume I, Chapter IV — Victor's research",
+    lyrics:
+      " “I’m not afraid to get my hands dirty, even if things seem a bit perverse. Do these deeds weigh heavy on my soul? I will no doubt sleep perfectly sound. While you struggle to keep your conscience, a garden of riches rots in the ground.”"
+  },
+  {
+    title: "Dead Next Door",
+    artist: "Creature Feature",
+    id: "5mXcgVjuXC5lLdk1xyTpNT",
+    connection:
+      "This song connects to how death and tragedy begin to surround Victor after he creates the creature. At first, Victor thinks his experiment is something he can keep separate from the rest of his life. However, after the creature escapes, Victor's actions begin affecting the people he loves. The deaths and suffering in the story make it clear that his experiment has consequences far beyond the laboratory. Victor also struggles with guilt because he knows more about the danger than he admits to the people around him. The song's dark mood fits the growing sense that tragedy is never far away. It represents how Victor's attempt to control life ends up bringing destruction into his own family.",
+    quote:
+      "“I was seized by remorse and the sense of guilt...”",
+    chapter: "Volume I, Chapter VII — Victor's guilt after William's death",
+    lyrics:
+      " “Long before the moon wanes over the ossuary, A lone phantom departs, fleeing without a trace. Now the graves are empty, hidden by the shadows, the departed inside vanished without a trace.”"
+  },
+  {
+    title: "The Unearthly Ones",
+    artist: "Creature Feature",
+    id: "1yMGjla4Nk5d5XKTiijcZG",
+    connection:
+      "This song represents how the creature is treated as something unnatural and frightening. When he first enters the world, he does not understand why people react so negatively to him. He tries to learn from humans and hopes that someone will accept him, but his appearance causes people to judge him before they know anything about him. One of the most important examples is when the De Lacey family rejects him after seeing him. That moment makes the creature realize that kindness and good intentions may not be enough to overcome the way people see him. The song's strange and supernatural feeling matches the way society views him as an outsider, even though he has many human emotions.",
+    quote:
+      "“I was benevolent and good; misery made me a fiend.”",
+    chapter: "Volume II, Chapter VII — The creature reflects on his transformation",
+    lyrics:
+      " “Foul and grotesque and don’t let their whispers possess, or your life’s done and you’ll join the unearthly ones.”"
+  },
+  {
+    title: "Nearly Departed",
+    artist: "Creature Feature",
+    id: "7jaLKV0iGyF65DUvUZcvRe",
+    connection:
+      "This song connects to the revenge that develops between Victor and the creature. After being rejected and left alone, the creature decides to hurt Victor by targeting the people he cares about. Victor becomes increasingly afraid as he realizes that the creature is following through on his threats. The song fits the feeling that someone is always close by and that danger is approaching, even when Victor tries to move on with his life. The creature's threat about Victor's wedding night becomes especially important because it shows how personal their conflict has become. Instead of solving the problem, both characters become trapped in a cycle of anger, revenge, and loss.",
+    quote:
+      "“I will be with you on your wedding-night.”",
+    chapter: "Volume III, Chapter III — The creature threatens Victor",
+    lyrics:
+      "“They're here, they're dead, they're evil and they're hungry. Flesh and sinew and bone have all gone astray.”"
+  },
+  {
+    title: "Personal Demons",
+    artist: "Rufus Rex",
+    id: "4MdXRz97E0R9VVSzXVhXp9",
+    connection:
+      "This song represents Victor's guilt and the mental struggle he faces after his experiment goes wrong. He knows that the creature is connected to the tragedies happening around him, but he is afraid to explain the truth. After William's death and Justine's conviction, Victor feels responsible because he understands that his creation is involved. However, he stays silent, allowing an innocent person to suffer. His guilt becomes something he cannot escape, and he struggles with the difference between what he knows and what he is willing to tell others. The song fits Victor's inner conflict because his biggest enemy is not only the creature but also the choices he made and the guilt he carries.",
+    quote:
+      "“I, not in deed, but in effect, was the true murderer.”",
+    chapter: "Volume I, Chapter VII — Victor reflects on his responsibility",
+    lyrics:
+      "“I have strange thoughts rattling in my brain. Fighting to get out, it's hard to keep them contained. I hear voices screaming inside my head, I mustn’t listen I'm sure that they want me dead.”"
+  },
+  {
+    title: "Body in Revolt",
+    artist: "Rufus Rex",
+    id: "69WfgpcotZRbdVr2jlUU7d",
+    connection:
+      "This song connects to the moment Victor finally brings the creature to life and realizes that his creation does not look the way he imagined. Victor spends years imagining the success of his experiment, but when the creature opens its eyes, he is immediately horrified. Instead of welcoming the life he has created, Victor abandons it because he cannot handle its appearance. This moment is important because it shows that Victor cared more about completing his experiment than about accepting responsibility for the creature afterward. The song's title also connects to the creature's physical existence and the way Victor's experiment challenges the natural boundaries of life. It represents the difference between creating life and actually caring for it.",
+    quote:
+      "“The beauty of the dream vanished, and breathless horror and disgust filled my heart.”",
+    chapter: "Volume I, Chapter V — The creature comes to life",
+    lyrics:
+      " “I think these bones have a mind of their own. I can feel them shift and feel them disown! Believe me when I say: I'd rather be dead!”"
+  },
+  {
+    title: "A Feast for the Worms",
+    artist: "Creature Feature",
+    id: "0ozgJm4CxNRFBmdiimjXEl",
+    connection:
+      "This song represents the final part of the novel, when Victor follows the creature across the Arctic. By this point, Victor has lost almost everything and is completely focused on finding the creature. His health and strength begin to fail, but he continues the pursuit because he wants revenge. When Victor finally dies, the creature appears and expresses regret over what has happened. He understands that his actions have caused suffering, but he also knows that he has lost the chance to live a different kind of life. The song's dark title fits the novel's ending because both Victor and the creature are left with the consequences of their choices. It brings the soundtrack to a tragic conclusion.",
+    quote:
+      "“I shall die, and what I now feel be no longer felt.”",
+    chapter: "Volume III, Chapter VII — Victor's final days",
+    lyrics:
+      "“So strike up the band and strike up the matches. Pour kerosene all over my casket. The world is safe, now here in my absence. A cancer removed, into the tomb I go.”"
+  }
+];
+
+let currentSong = 0;
+let spotifyController = null;
+let playerReady = false;
+let isPlaying = false;
+
+const selector = document.getElementById("songSelector");
+const playButton = document.getElementById("playButton");
+const statusText = document.getElementById("playerStatus");
+const record = document.getElementById("record");
+
+function buildSelector() {
+  songs.forEach((song, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = `${index + 1}. ${song.title} — ${song.artist}`;
+    selector.appendChild(option);
+  });
+}
+
+function showSong(index) {
+  currentSong = (index + songs.length) % songs.length;
+  const song = songs[currentSong];
+
+  document.getElementById("noteTitle").textContent = song.title;
+  document.getElementById("noteArtist").textContent = song.artist;
+  document.getElementById("noteContent").textContent = song.connection;
+  document.getElementById("noteQuote").textContent = song.quote;
+  document.getElementById("noteChapter").textContent = song.chapter;
+  document.getElementById("noteLyrics").textContent = song.lyrics;
+
+  selector.value = currentSong;
+
+  if (spotifyController && playerReady) {
+    spotifyController.loadUri(`spotify:track:${song.id}`);
+    stopVisualPlayback();
+    statusText.textContent = "Track loaded. Press Play to listen.";
+  }
+}
+
+function stopVisualPlayback() {
+  isPlaying = false;
+  record.classList.remove("spinning");
+  playButton.textContent = "▶ Play";
+}
+
+function startVisualPlayback() {
+  isPlaying = true;
+  record.classList.add("spinning");
+  playButton.textContent = "Ⅱ Pause";
+}
+
+function previousSong() {
+  showSong(currentSong - 1);
+}
+
+function nextSong() {
+  showSong(currentSong + 1);
+}
+
+function playPause() {
+  if (!spotifyController || !playerReady) {
+    statusText.textContent =
+      "The Spotify player is still loading. Try again in a moment.";
+    return;
+  }
+
+  if (isPlaying) {
+    spotifyController.pause();
+  } else {
+    spotifyController.play();
+  }
+}
+
+selector.addEventListener("change", (event) => {
+  showSong(Number(event.target.value));
+});
+
+document.getElementById("previousButton")
+  .addEventListener("click", previousSong);
+
+document.getElementById("nextButton")
+  .addEventListener("click", nextSong);
+
+playButton.addEventListener("click", playPause);
+
+buildSelector();
+showSong(0);
+
+/* SPOTIFY EMBED API */
+
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
+  const element = document.getElementById("spotifyPlayer");
+
+  const options = {
+    width: "100%",
+    height: "152",
+    uri: `spotify:track:${songs[0].id}`
+  };
+
+  IFrameAPI.createController(element, options, (controller) => {
+    spotifyController = controller;
+
+    controller.addListener("ready", () => {
+      playerReady = true;
+      playButton.disabled = false;
+      statusText.textContent =
+        "Player ready. Choose a track and press Play.";
+    });
+
+    controller.addListener("playback_update", (event) => {
+      const playback = event.data;
+
+      if (playback.isPaused) {
+        stopVisualPlayback();
+      } else if (!playback.isBuffering) {
+        startVisualPlayback();
+      }
+    });
+
+    controller.addListener("playback_started", () => {
+      startVisualPlayback();
+      statusText.textContent =
+        "Now playing: " + songs[currentSong].title;
+    });
+  });
+};
+</script>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+</body>
+</html>
